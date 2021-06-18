@@ -22,7 +22,6 @@ const printResults = resultArr => {
   $displayArea.innerHTML = animalHTML.join('');
 };
 
-$zookeeperForm.addEventListener('submit', handleGetZookeepersSubmit);
 
 const getZookeepers = (formData = {}) => {
   let queryUrl = '/api/zookeepers?';
@@ -44,6 +43,8 @@ const getZookeepers = (formData = {}) => {
     });
 };
 
+getZookeepers();
+
 const handleGetZookeepersSubmit = event => {
   event.preventDefault();
   const nameHTML = $zookeeperForm.querySelector('[name="name"]');
@@ -57,5 +58,6 @@ const handleGetZookeepersSubmit = event => {
   getZookeepers(zookeeperObject);
 };
 
+$zookeeperForm.addEventListener('submit', handleGetZookeepersSubmit);
 
 getZookeepers();
